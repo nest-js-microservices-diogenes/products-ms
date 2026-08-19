@@ -1,4 +1,4 @@
-import { Controller, ParseIntPipe } from '@nestjs/common';
+import { Controller, HttpStatus, ParseIntPipe } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -28,9 +28,8 @@ export class ProductsController {
 
     if (!product) {
       throw new RpcException({
-        ok: false,
-        error: 'Product not found',
-        message: 'Not found',
+        status: HttpStatus.BAD_REQUEST,
+        message: `Product with id #{ id} not found`,
       });
     }
 
