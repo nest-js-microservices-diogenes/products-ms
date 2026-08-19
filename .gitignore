@@ -4,6 +4,7 @@
 /build
 .claude/
 generated/
+dev.db
 
 # Logs
 logs

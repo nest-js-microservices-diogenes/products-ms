@@ -44,7 +44,7 @@ export class ProductsController {
 
   // @Delete(':id')
   @MessagePattern({ cmd: 'delete_product' })
-  remove(@Payload('id') id: string) {
-    return this.productsService.remove(+id);
+  remove(@Payload('id') id: number) {
+    return this.productsService.remove(id);
   }
 }
